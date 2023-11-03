@@ -631,7 +631,7 @@ Lemma cst_crealP (x : F) : creal_axiom (fun _ => x).
 Proof. by exists (fun _ => 0%N)=> *; rewrite subrr normr0. Qed.
 Definition cst_creal (x : F) := CReal (cst_crealP x).
 Notation "x %:CR" := (cst_creal x)
-  (at level 2, left associativity, format "x %:CR") : creal_scope.
+  (at level 1, left associativity, format "x %:CR") : creal_scope.
 Notation "0" := (0 %:CR) : creal_scope.
 
 Lemma lbound0P (x : creal) (x_neq0 : x != 0) i :
@@ -1562,7 +1562,7 @@ Qed.
 Definition horner2_creal (p : {poly {poly F}}) (x y : creal) :=
   CReal (horner2_crealP p x y).
 Notation "p .[ x , y ]" := (horner2_creal p x y)
-  (at level 2, left associativity) : creal_scope.
+  (at level 1, left associativity) : creal_scope.
 
 Lemma root_monic_from_neq0 (p : {poly F}) (x : creal) :
   p.[x] == 0 -> ((lead_coef p) ^-1 *: p).[x] == 0.
@@ -1643,7 +1643,7 @@ Notation "!=%CR" := neq_creal : creal_scope.
 Notation "x != y" := (neq_creal x  y) : creal_scope.
 
 Notation "x %:CR" := (cst_creal x)
-  (at level 2, left associativity, format "x %:CR") : creal_scope.
+  (at level 1, left associativity, format "x %:CR") : creal_scope.
 Notation "0" := (0 %:CR)%CR : creal_scope.
 
 Notation "<%CR" := lt_creal : creal_scope.
@@ -1666,7 +1666,7 @@ Notation "x_neq0 ^-1" := (inv_creal x_neq0) : creal_scope.
 Notation "x / y_neq0" := (x * (y_neq0 ^-1))%CR : creal_scope.
 Notation "p .[ x ]" := (horner_creal p x) : creal_scope.
 Notation "p .[ x , y ]" := (horner2_creal p x y)
-  (at level 2, left associativity) : creal_scope.
+  (at level 1, left associativity) : creal_scope.
 Notation "x ^+ n" := (exp_creal x n) : creal_scope.
 
 Notation "`| x |" := (norm_creal x) : creal_scope.

@@ -32,7 +32,7 @@ Reserved Notation "x +i* y"
 Reserved Notation "x -i* y"
   (at level 40, left associativity, format "x  -i*  y").
 Reserved Notation "R [i]"
-  (at level 2, left associativity, format "R [i]").
+  (at level 1, left associativity, format "R [i]").
 
 Local Notation sgr := Num.sg.
 Local Notation sqrtr := Num.sqrt.
@@ -47,13 +47,13 @@ Definition real_complex_def (F : ringType) (phF : phant F) (x : F) :=
   Complex x 0.
 Notation real_complex F := (@real_complex_def _ (Phant F)).
 Notation "x %:C" := (real_complex _ x)
-  (at level 2, left associativity, format "x %:C")  : complex_scope.
+  (at level 1, left associativity, format "x %:C")  : complex_scope.
 Notation "x +i* y" := (Complex x y) : complex_scope.
 Notation "x -i* y" := (Complex x (- y)) : complex_scope.
 Notation "x *i " := (Complex 0 x) (at level 8, format "x *i") : complex_scope.
 Notation "''i'" := (Complex 0 1) : complex_scope.
 Notation "R [i]" := (complex R)
-  (at level 2, left associativity, format "R [i]").
+  (at level 1, left associativity, format "R [i]").
 
 (* Module ComplexInternal. *)
 Module ComplexEqChoice.
@@ -367,7 +367,7 @@ HB.export ComplexField.
 (* indeed, this would prevent C fril having a normed module over C *)
 
 Definition conjc {R : ringType} (x : R[i]) := let: a +i* b := x in a -i* b.
-Notation "x ^*" := (conjc x) (at level 2, format "x ^*") : complex_scope.
+Notation "x ^*" := (conjc x) : complex_scope.
 Local Open Scope complex_scope.
 Delimit Scope complex_scope with C.
 

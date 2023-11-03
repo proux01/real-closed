@@ -192,8 +192,8 @@ Import Pdiv.Ring.
 
 Definition bind_def T1 T2 T3 (f : (T1 -> T2) -> T3) (k : T1 -> T2)  := f k.
 Notation "'bind' x <- y ; z" :=
-  (bind_def y (fun x => z)) (at level 99, x at level 0, y at level 0,
-    format "'[hv' 'bind'  x  <-  y ;  '/' z ']'").
+  (bind_def y (fun x => z)) (at level 10, x at level 0, y at level 10,
+   z at level 200, format "'[hv' 'bind'  x  <-  y ;  '/' z ']'").
 
 Section ProjDef.
 
